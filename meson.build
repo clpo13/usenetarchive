@@ -4,6 +4,9 @@ compiler = meson.get_compiler('cpp')
 compile_args = compiler.get_supported_arguments('-march=native')
 add_project_arguments(compile_args, language: ['c', 'cpp'])
 
+conf_data = configuration_data()
+conf_data.set_quoted('PREFIX', get_option('prefix'))
+configure_file(output: 'config.h', configuration: conf_data)
 
 common_src = [
     'common/Filesystem.cpp',

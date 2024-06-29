@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "config.h"
+
 static const char* s_help =
 "Usenet Archive Toolkit\n\n"
 "Created by Bartosz Taudul <wolf@nereid.pl>\n"
@@ -71,7 +73,7 @@ int main( int argc, char** argv )
     }
 
     char tmp[1024];
-    sprintf( tmp, "%s/%s", "/usr/lib/uat/", argv[1] );
+    sprintf( tmp, "%s/%s/%s", PREFIX, "lib/uat", argv[1] );
 
     char fn[1024];
     sprintf( fn, "uat %s", argv[1] );
